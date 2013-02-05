@@ -17,6 +17,10 @@ end
 
 gem 'jquery-rails', '2.0.2'
 
+gem 'execjs'
+
+gem 'therubyracer'
+
 group :test do
   gem 'capybara', '1.1.2'
 end
