@@ -10,8 +10,14 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
-      <%= yield %>
+      <% flash.each do |key, value| %> <!-- zmienna flash jest populowana w "users_controller.rb" -->
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+
+      <%= yield %> <!-- to nie wiem do czego sluzy -->
       <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %> <!-- ta linia bedzie wyswietlona tylko dla ruby w srodowisku developerskim. "debug(params)" jest magicznym poleceniem, ktore wyswietla rezultaty 
+                                                      dzialania railsow ->
     </div>
   </body>
 </html>

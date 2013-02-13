@@ -10,13 +10,13 @@ describe "Static pages" do
     end
 
     it "should have the base title" do
-      visit root_path
+      visit '/static_pages/home'
       page.should have_selector('title',
                         :text => "Ruby on Rails Tutorial Sample App")
     end
 
     it "should not have a custom page title" do
-      visit root_path
+      visit '/static_pages/home'
       page.should_not have_selector('title', :text => '| Home')
     end
   end
@@ -24,12 +24,14 @@ describe "Static pages" do
   describe "Help page" do
 
     it "should have the h1 'Help'" do
-      visit help_path
+      visit help_path 
+      # wydaje mi sie, ze zmienna 'help_path' powstaje automatycznie z polaczenia zmiennej 'help' z koncowka '_path'
+      # w pliku 'routes.rb' mamy sciezke zapisana tylko dla 'help' tj. match '/help',    :to => 'static_pages#help'
       page.should have_selector('h1', :text => 'Help')
     end
 
     it "should have the title 'Help'" do
-      visit help_path
+      visit help_path 
       page.should have_selector('title',
                         :text => "Ruby on Rails Tutorial Sample App | Help")
     end

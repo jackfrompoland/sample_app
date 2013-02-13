@@ -1,0 +1,20 @@
+<!-- sprawdza czy sa jakies bledy, przypominam, ze user jest obiektem klasy User, klasa User jest opisana w pliku/ modelu: "user.rb", ktory 
+znajduje sie w "app/models" naszej aplikacji
+
+<% if @user.errors.any? %> 
+  <div id="error_explanation">
+
+    <div class="alert alert-error">
+      The form contains <%= pluralize(@user.errors.count, "error") %>. 
+      <!-- pluralize zamienia drugi argument na liczbe mnoga, taka magiczna sztuczka! -->
+    </div>
+
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %> <!-- each za kazdym razem populuje zmienna typu blok o nazwie |msg| -->
+        <li>* <%= msg %></li>
+      <% end %>
+    </ul>
+
+  </div>
+
+<% end %>

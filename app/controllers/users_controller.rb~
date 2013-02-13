@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       # uzywamy tu symbolu ":success"
 
 
-      redirect_to @user # ??? tego nie rozumiem, jak to jest mozliwe, ze przekierowujemy na obiekt? Dlaczego przenosi nas to do strony glownej?
+      redirect_to @user
     else
       render 'new'
     end

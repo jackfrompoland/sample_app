@@ -14,9 +14,9 @@
 
       <%= f.label :email %>
       <%= f.text_field :email %> 
-          <!-- linia powyzej stworzy kod html => <input id="user_email" name="user[email]" size="30" type="text">
-               gdzie "user[email]" is precisely the email attribute of the user hash.
-          -->
+      <!-- linia powyzej stworzy kod html -> <input id="user_email" name="user[email]" size="30" type="text">
+           gdzie "user[email]" is precisely the email attribute of the user hash.
+      -->
 
       <%= f.label :password %>
       <%= f.password_field :password %>

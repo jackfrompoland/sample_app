@@ -1,10 +1,15 @@
 SampleApp::Application.routes.draw do
-root :to => 'static_pages#home'
+#wydaje mi sie, ze plik z routingiem jest uzywany przez serwer
+#rails server -p 3001
+resources :users #nie wiem do czego to sluzy
+root :to => 'static_pages#home' #to jak mi sie zdaje rutuje domyslna strone na sciezke "static_pages#home"
+
 
 match '/static_pages/home', :to =>'static_pages#home'
 match '/help',    :to => 'static_pages#help'
 match '/about',   :to => 'static_pages#about'
 match '/contact', :to =>'static_pages#contact'
+match '/signup',  :to => 'users#new'
 
   #get "users/new"
 

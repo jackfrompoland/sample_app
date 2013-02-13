@@ -1,5 +1,14 @@
 SampleApp::Application.routes.draw do
-root :to => 'static_pages#home'
+#wydaje mi sie, ze plik z routingiem jest uzywany przez serwer
+#rails server -p 3001
+
+resources :users #Recall from Section 7.1.2 that adding resources :users to the routes.rb file (Listing 7.3) automatically ensures that our Rails   
+                 #application responds to the RESTful URIs from Table 7.1. In particular, it ensures that a POST request to /users is handled by the 
+                 #create action. 
+
+
+root :to => 'static_pages#home' #to jak mi sie zdaje rutuje domyslna strone na sciezke "static_pages#home"
+
 
 match '/static_pages/home', :to =>'static_pages#home'
 match '/help',    :to => 'static_pages#help'
