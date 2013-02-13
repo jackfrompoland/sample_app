@@ -15,8 +15,14 @@ end
 pytanie skad sie bierze wartosc "id"? Wydaje mi sie, ze jest to po prostu wartosc sczytana z adresu podanego w przegladarce
  -->
 
-<h1>
-  <%= gravatar_for @user %> <!-- "gravatar_for" nie jest zdefiniowane, definiujemy wiec te metode w "app/helpers/users_helper.rb" -->
-  <%= @user.name %>
-  <%= @user.email %>
-</h1>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @user %> <!-- "gravatar_for" nie jest zdefiniowane, definiujemy wiec te metode w "app/helpers/users_helper.rb" -->
+        <%= @user.name %>
+        <%= @user.email %>
+      </h1>
+    </section>
+  </aside>
+</div>
