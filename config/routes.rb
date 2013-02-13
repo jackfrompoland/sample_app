@@ -6,6 +6,16 @@ resources :users #Recall from Section 7.1.2 that adding resources :users to the 
                  #application responds to the RESTful URIs from Table 7.1. In particular, it ensures that a POST request to /users is handled by the 
                  #create action. 
 
+resources :sessions, only: [:new, :create, :destroy]
+
+#To get the tests in Listing 8.1 to pass, we first need to define routes for the Sessions resource, 
+#together with a custom named route for the signin page (which we’ll map to the Session controller’s new action). 
+#As with the Users resource, we can use the resources method to define the standard RESTful routes:
+
+#aby test udawal sie na zmienionych sciezkach routingu potrzebny jest restart "spork'a" albo nie uzywanie "spork'a"
+
+
+
 
 root :to => 'static_pages#home' #to jak mi sie zdaje rutuje domyslna strone na sciezke "static_pages#home"
 
@@ -15,6 +25,9 @@ match '/help',    :to => 'static_pages#help'
 match '/about',   :to => 'static_pages#about'
 match '/contact', :to =>'static_pages#contact'
 match '/signup',  :to => 'users#new'
+match '/signin',  :to => 'sessions#new'
+match '/signout', :to => 'sessions#destroy', via: :delete
+# "via: delete" indicates that it should be invoked using an HTTP DELETE request.
 
   #get "users/new"
 

@@ -5,7 +5,8 @@
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>  
 
-<!-- form_for jest metoda helpera, ktora bierze zmienna typu blok, tutaj nazwalismy ja 'f', obiekt ten koresponduje z tagami html jak te ponizej. Uzywamy tutaj zmiennej @user, ktora nie zadziala w tescie poniewaz jej nie stworzylismy w tescie 'user_pages_spec.rb'. Aby test mogl zadzialac zapewnimy stworzenie tej zmiennej w 'users_controller.rb'. -->
+    <!-- form_for jest metoda helpera, ktora bierze zmienna typu blok, tutaj nazwalismy ja 'f', obiekt ten koresponduje z tagami html jak te ponizej. Uzywamy tutaj zmiennej @user, ktora nie zadziala w  
+    tescie poniewaz jej nie stworzylismy w tescie 'user_pages_spec.rb'. Aby test mogl zadzialac zapewnimy stworzenie tej zmiennej w 'users_controller.rb'. -->
 
       <%= render 'shared/error_messages' %> <!-- jest napisane "error_messages" ale plik nazywa sie "_error_messages.html.erb" -->
 

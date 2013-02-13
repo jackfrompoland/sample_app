@@ -1,0 +1,15 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @users %> 
+  <!-- magia na maxa: jakims cudem rails rozpoznaje, ze to jest zbior obiektow dlatego iteruje po nich
+       co wiecej domysla sie, ze opis tego jak ma dane wyswietlac znajduje sie w pliku
+       "app/views/users/_user.html.erb"
+       Co cuda po prostu!
+  -->
+</ul>
+
+<%= will_paginate %>

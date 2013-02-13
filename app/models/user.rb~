@@ -15,6 +15,10 @@
 #  validates :name, :presence, podczas 
 #  validates :email, :presence => true
 
+
+# jak wlasciwie tworzony jest ten plik?
+# gdzie jest tworzona tabela "users", jak to sie ma do klasy "User"?
+
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password

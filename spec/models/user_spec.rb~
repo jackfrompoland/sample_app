@@ -25,6 +25,7 @@ describe User do
   it { should respond_to(:password_digest) } #"password_digest" to slowo kluczowe, oznacza ze pole to jest szyfrowane
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
 
   it { should be_valid }
@@ -97,18 +98,27 @@ describe User do
     describe "with valid password" do
       it { should == found_user.authenticate(@user.password) } #nie rozumiem tej linijki, 'it' to 'user', 'found_user' to user znaleziony za pomoca 'emaila', 
     end
+
+    describe "with invalid password" do
+      let(:user_for_invalid_password) { found_user.authenticate("invalid") }
+
+      it { should_not == user_for_invalid_password }
+      specify { user_for_invalid_password.should be_false }
+    end
+
+    describe "with a password that's too short" do
+      before { @user.password = @user.password_confirmation = "a" * 5 }
+      it { should be_invalid }
+    end
   end
 
-  describe "with invalid password" do
-    let(:found_user) { User.find_by_email(@user.email) }
-    let(:user_for_invalid_password) { found_user.authenticate("invalid") }
-
-    it { should_not == user_for_invalid_password }
-    specify { user_for_invalid_password.should be_false }
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+    # the its method, which is like it but applies the subsequent test to the given attribute rather than the subject of the test. In other words,
+    # its(:remember_token) { should_not be_blank }
+    # is equivalent to
+    # it { @user.remember_token.should_not be_blank }
   end
 
-  describe "with a password that's too short" do
-    before { @user.password = @user.password_confirmation = "a" * 5 }
-    it { should be_invalid }
-  end
 end
